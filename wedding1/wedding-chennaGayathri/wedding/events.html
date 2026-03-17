@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — Chenna Naik & Gayathri Bai Wedding</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>" />
+  <style>
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .dress-code-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      border: 1px solid rgba(201,168,76,0.2);
+      box-shadow: var(--shadow-sm);
+      max-width: 600px; margin: 0 auto;
+    }
+    .dress-code-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .dress-code-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem; letter-spacing: 2px; color: var(--gold-dark);
+      margin-bottom: 12px;
+    }
+    .dress-code-text {
+      font-family: var(--font-serif); font-style: italic;
+      color: var(--text-mid); font-size: 1.05rem;
+    }
+    .event-note {
+      text-align: center; margin-top: 48px;
+      font-family: var(--font-serif);
+      font-size: 1.1rem; font-style: italic;
+      color: var(--text-light);
+    }
+    .schedule-strip {
+      background: linear-gradient(135deg, var(--navy), #2A3A6A);
+      padding: 60px 0;
+    }
+    .schedule-strip .section-title,
+    .schedule-strip .section-subtitle { color: var(--white); }
+    .schedule-strip .section-subtitle { color: var(--gold-pale); }
+    .schedule-list {
+      list-style: none; max-width: 560px; margin: 40px auto 0;
+    }
+    .schedule-item {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .schedule-item:last-child { border-bottom: none; }
+    .schedule-time {
+      font-family: var(--font-display);
+      font-size: 1rem; color: var(--gold-light);
+      letter-spacing: 1px; min-width: 90px;
+      padding-top: 2px;
+    }
+    .schedule-info { flex: 1; }
+    .schedule-name {
+      font-family: var(--font-display);
+      font-size: 1rem; color: var(--white); letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .schedule-desc {
+      font-family: var(--font-serif);
+      font-size: 0.9rem; font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+    .schedule-icon { font-size: 1.4rem; color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-cross">✝</div><div class="loader-text">Loading…</div></div>
+<canvas id="particles-canvas"></canvas>
+<audio id="bg-music" loop preload="none"></audio>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="invitation.html" class="nav-brand">
+    <span class="nav-brand-cross">✝</span>
+    <div class="nav-brand-text"><span>Chenna</span> & <span>Gayathri</span></div>
+  </a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="invitation.html" class="nav-link">Invitation</a></li>
+    <li class="nav-item"><a href="couple.html" class="nav-link">Couple</a></li>
+    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+    <li class="nav-item"><a href="family.html" class="nav-link">Family</a></li>
+    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+    <li class="nav-item"><a href="location.html" class="nav-link">Location</a></li>
+    <li class="nav-item"><a href="rsvp.html" class="nav-link">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="page-hero-cross">✝</span>
+  <h1 class="page-hero-title">Wedding Events</h1>
+  <p class="page-hero-sub">A day full of joy, faith, and celebration</p>
+</section>
+
+<!-- EVENTS CARDS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-ornament">
+        <span class="section-ornament-line"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line right"></span>
+      </div>
+      <h2 class="section-title">Celebrate With Us</h2>
+      <p class="section-subtitle">Join us for these special moments on our wedding day</p>
+    </div>
+
+    <div class="events-grid stagger-children">
+
+      <!-- Wedding Ceremony -->
+      <div class="event-card reveal">
+        <div class="event-card-header">
+          <span class="event-card-icon">⛪</span>
+          <div class="event-card-title">Wedding Ceremony</div>
+        </div>
+        <div class="event-card-body">
+          <div class="event-detail">
+            <span class="event-detail-icon">📅</span>
+            <span class="event-detail-label">Date</span>
+            <span class="event-detail-value">25 May 2026</span>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">🕙</span>
+            <span class="event-detail-label">Time</span>
+            <span class="event-detail-value">10:30 AM</span>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">📍</span>
+            <span class="event-detail-label">Venue</span>
+            <span class="event-detail-value" style="font-size:0.85rem;text-align:right;max-width:180px;">Nehru Nagar, Thanda, AP</span>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">👗</span>
+            <span class="event-detail-label">Dress Code</span>
+            <span class="event-detail-value">Formal / Traditional</span>
+          </div>
+          <div style="margin-top:20px;text-align:center;">
+            <a href="location.html" class="btn btn-outline" style="font-size:0.7rem;padding:10px 24px;">Get Directions ✦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reception -->
+      <div class="event-card reveal">
+        <div class="event-card-header">
+          <span class="event-card-icon">🥂</span>
+          <div class="event-card-title">Wedding Reception</div>
+        </div>
+        <div class="event-card-body">
+          <div class="event-detail">
+            <span class="event-detail-icon">📅</span>
+            <span class="event-detail-label">Date</span>
+            <span class="event-detail-value">25 May 2026</span>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">🕖</span>
+            <span class="event-detail-label">Time</span>
+            <span class="event-detail-value">7:00 PM</span>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">📍</span>
+            <span class="event-detail-label">Venue</span>
+            <span class="event-detail-value" style="font-size:0.85rem;text-align:right;max-width:180px;">Nehru Nagar, Thanda, AP</span>
+          </div>
+          <div class="event-detail">
+            <span class="event-detail-icon">🍽️</span>
+            <span class="event-detail-label">Includes</span>
+            <span class="event-detail-value">Dinner & Dancing</span>
+          </div>
+          <div style="margin-top:20px;text-align:center;">
+            <a href="rsvp.html" class="btn btn-primary" style="font-size:0.7rem;padding:10px 24px;">RSVP Now ✦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save the Date -->
+      <div class="event-card reveal">
+        <div class="event-card-header">
+          <span class="event-card-icon">💍</span>
+          <div class="event-card-title">Save the Date</div>
+        </div>
+        <div class="event-card-body">
+          <div style="text-align:center;padding:20px 0;">
+            <!-- Countdown here -->
+            <div style="font-family:var(--font-serif);font-style:italic;color:var(--text-light);margin-bottom:24px;">
+              Counting down to the big day…
+            </div>
+            <div class="countdown" style="justify-content:center;gap:12px;">
+              <div class="countdown-item">
+                <div class="countdown-number" data-countdown="days" style="width:64px;height:64px;font-size:1.8rem;">00</div>
+                <div class="countdown-label">Days</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-number" data-countdown="hours" style="width:64px;height:64px;font-size:1.8rem;">00</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-number" data-countdown="minutes" style="width:64px;height:64px;font-size:1.8rem;">00</div>
+                <div class="countdown-label">Mins</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:16px;text-align:center;">
+            <a href="invitation.html" class="btn btn-outline" style="font-size:0.7rem;padding:10px 24px;">View Invitation ✦</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /events-grid -->
+
+    <p class="event-note reveal">
+      "For everything there is a season, and a time for every matter under heaven." — Ecclesiastes 3:1
+    </p>
+
+  </div>
+</section>
+
+<!-- DAY SCHEDULE STRIP -->
+<section class="schedule-strip">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:0;">
+      <div class="section-ornament">
+        <span class="section-ornament-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line" style="background:linear-gradient(90deg,var(--gold),transparent);"></span>
+      </div>
+      <h2 class="section-title" style="color:var(--white);">Day Schedule</h2>
+      <p class="section-subtitle" style="color:var(--gold-pale);">A blessed timeline for our wedding day</p>
+    </div>
+
+    <ul class="schedule-list reveal">
+      <li class="schedule-item">
+        <span class="schedule-time">9:00 AM</span>
+        <div class="schedule-info">
+          <div class="schedule-name">Guests Arrive</div>
+          <div class="schedule-desc">Welcome and seating at the venue</div>
+        </div>
+        <span class="schedule-icon">🕘</span>
+      </li>
+      <li class="schedule-item">
+        <span class="schedule-time">10:30 AM</span>
+        <div class="schedule-info">
+          <div class="schedule-name">Wedding Ceremony Begins</div>
+          <div class="schedule-desc">Sacred vows before God and loved ones</div>
+        </div>
+        <span class="schedule-icon">⛪</span>
+      </li>
+      <li class="schedule-item">
+        <span class="schedule-time">12:30 PM</span>
+        <div class="schedule-info">
+          <div class="schedule-name">Lunch &amp; Celebration</div>
+          <div class="schedule-desc">Joyful feast with family and friends</div>
+        </div>
+        <span class="schedule-icon">🍽️</span>
+      </li>
+      <li class="schedule-item">
+        <span class="schedule-time">4:00 PM</span>
+        <div class="schedule-info">
+          <div class="schedule-name">Photo Sessions</div>
+          <div class="schedule-desc">Capturing precious memories of the day</div>
+        </div>
+        <span class="schedule-icon">📷</span>
+      </li>
+      <li class="schedule-item">
+        <span class="schedule-time">7:00 PM</span>
+        <div class="schedule-info">
+          <div class="schedule-name">Evening Reception</div>
+          <div class="schedule-desc">Dinner, music, and dancing into the night</div>
+        </div>
+        <span class="schedule-icon">🥂</span>
+      </li>
+      <li class="schedule-item">
+        <span class="schedule-time">10:00 PM</span>
+        <div class="schedule-info">
+          <div class="schedule-name">Farewell &amp; Blessings</div>
+          <div class="schedule-desc">Sending off the newlyweds with love and prayers</div>
+        </div>
+        <span class="schedule-icon">✝</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- DRESS CODE -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-ornament">
+        <span class="section-ornament-line"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line right"></span>
+      </div>
+      <h2 class="section-title">Dress Code</h2>
+      <p class="section-subtitle">Dress elegantly for this special celebration</p>
+    </div>
+
+    <div class="dress-code-box reveal">
+      <div class="dress-code-icon">👔</div>
+      <div class="dress-code-title">Smart Formal / Traditional Attire</div>
+      <div style="width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto;"></div>
+      <p class="dress-code-text">
+        We invite our guests to dress elegantly in formal or traditional attire.<br>
+        Colors: Whites, creams, pastels, and soft jewel tones are warmly welcomed.<br><br>
+        Please avoid bright red or black as these are reserved for the wedding party.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-cross">✝</span>
+  <div class="footer-names">Chenna &amp; Gayathri</div>
+  <div class="footer-date">25 May 2026</div>
+  <p class="footer-verse">"What God has joined together, let no one separate." — Mark 10:9</p>
+  <ul class="footer-nav">
+    <li><a href="invitation.html">Invitation</a></li>
+    <li><a href="couple.html">Couple</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="family.html">Family</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="location.html">Location</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+  <div class="footer-copy">Made with ♥ &amp; God's Grace · Chenna Naik &amp; Gayathri Bai © 2026</div>
+</footer>
+
+<button id="music-btn" title="Play Music">🎵</button>
+<script src="js/script.js"></script>
+</body>
+</html>

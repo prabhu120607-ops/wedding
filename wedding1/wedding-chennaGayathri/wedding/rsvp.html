@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP — Chenna Naik & Gayathri Bai Wedding</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>" />
+  <style>
+    .rsvp-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    @media(max-width:800px){ .rsvp-layout{grid-template-columns:1fr;} }
+
+    /* RSVP form card */
+    .rsvp-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(201,168,76,0.15);
+      position: relative; overflow: hidden;
+    }
+    .rsvp-form-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    }
+    .rsvp-form-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem; color: var(--text-dark);
+      letter-spacing: 2px; margin-bottom: 8px;
+    }
+    .rsvp-form-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1rem; font-style: italic; color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    /* Radio group styling */
+    .radio-group {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .radio-option {
+      flex: 1; min-width: 120px;
+      position: relative;
+    }
+    .radio-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .radio-label {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px;
+      border: 1.5px solid rgba(201,168,76,0.3);
+      border-radius: 10px; cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-mid);
+      transition: var(--transition);
+    }
+    .radio-option input:checked + .radio-label {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--white); border-color: var(--gold);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+    }
+    .radio-label:hover { border-color: var(--gold); color: var(--gold-dark); }
+
+    /* Info sidebar */
+    .rsvp-info-card {
+      background: linear-gradient(135deg, var(--navy), #2A3A6A);
+      border-radius: var(--radius-lg);
+      padding: 48px 36px;
+      color: var(--white);
+    }
+    .rsvp-info-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem; letter-spacing: 2px; color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+    .rsvp-info-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .rsvp-info-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .rsvp-info-icon { font-size: 1.3rem; color: var(--gold); flex-shrink: 0; }
+    .rsvp-info-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 4px;
+    }
+    .rsvp-info-value {
+      font-family: var(--font-serif);
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+    }
+    .rsvp-deadline {
+      margin-top: 32px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 10px; padding: 20px;
+      text-align: center;
+    }
+    .rsvp-deadline-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 6px;
+    }
+    .rsvp-deadline-date {
+      font-family: var(--font-display);
+      font-size: 1.2rem; color: var(--white);
+    }
+
+    /* Character counter */
+    .char-count {
+      font-family: var(--font-sans);
+      font-size: 0.7rem; color: var(--text-light);
+      text-align: right; margin-top: 4px;
+    }
+
+    /* Success message */
+    .success-message {
+      background: linear-gradient(135deg, #d4edda, #c3e6cb);
+      border: 1px solid #28a745;
+      color: #155724;
+      padding: 20px 24px; border-radius: 12px;
+      text-align: center; margin-top: 20px;
+      display: none;
+      font-family: var(--font-serif); font-size: 1.05rem;
+    }
+    .success-message.show { display: block; animation: fadeInUp 0.5s ease; }
+    .success-message .success-icon { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-cross">✝</div><div class="loader-text">Loading…</div></div>
+<canvas id="particles-canvas"></canvas>
+<audio id="bg-music" loop preload="none"></audio>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="invitation.html" class="nav-brand">
+    <span class="nav-brand-cross">✝</span>
+    <div class="nav-brand-text"><span>Chenna</span> & <span>Gayathri</span></div>
+  </a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="invitation.html" class="nav-link">Invitation</a></li>
+    <li class="nav-item"><a href="couple.html" class="nav-link">Couple</a></li>
+    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+    <li class="nav-item"><a href="family.html" class="nav-link">Family</a></li>
+    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+    <li class="nav-item"><a href="location.html" class="nav-link">Location</a></li>
+    <li class="nav-item"><a href="rsvp.html" class="nav-link">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="page-hero-cross">✝</span>
+  <h1 class="page-hero-title">RSVP</h1>
+  <p class="page-hero-sub">Kindly let us know if you'll be joining us</p>
+</section>
+
+<!-- RSVP SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-ornament">
+        <span class="section-ornament-line"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line right"></span>
+      </div>
+      <h2 class="section-title">Confirm Your Attendance</h2>
+      <p class="section-subtitle">Your presence is the greatest gift you can give us</p>
+    </div>
+
+    <div class="rsvp-layout">
+
+      <!-- RSVP FORM -->
+      <div class="rsvp-form-card reveal-left">
+        <div class="rsvp-form-title">RSVP Form</div>
+        <p class="rsvp-form-subtitle">Please fill in your details below</p>
+
+        <form id="rsvp-form" novalidate>
+
+          <!-- Guest Name -->
+          <div class="form-group">
+            <label class="form-label" for="guest_name">Your Full Name *</label>
+            <input
+              type="text" id="guest_name" name="guest_name"
+              class="input-field"
+              placeholder="e.g. Ravi Kumar"
+              required maxlength="150"
+            />
+          </div>
+
+          <!-- Number of Guests -->
+          <div class="form-group">
+            <label class="form-label" for="num_guests">Number of Guests *</label>
+            <select id="num_guests" name="num_guests" class="input-field" required>
+              <option value="">Select number of guests…</option>
+              <option value="1">1 – Just me</option>
+              <option value="2">2 – Me + 1</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8+ Guests</option>
+            </select>
+          </div>
+
+          <!-- Attending -->
+          <div class="form-group">
+            <label class="form-label">Will You Be Attending? *</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="attending-yes" name="attending" value="yes" required />
+                <label class="radio-label" for="attending-yes">✓ Yes, I'll be there!</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="attending-no" name="attending" value="no" />
+                <label class="radio-label" for="attending-no">✗ Unable to attend</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label class="form-label" for="message">Message / Blessing for the Couple</label>
+            <textarea
+              id="message" name="message"
+              class="input-field"
+              placeholder="Share your love, blessings, or wishes for Chenna & Gayathri…"
+              maxlength="500"
+              rows="5"
+            ></textarea>
+            <div class="char-count"><span id="char-count">0</span>/500 characters</div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn">
+            <span>Send RSVP ✦</span>
+          </button>
+
+        </form>
+
+        <!-- Success Message -->
+        <div id="rsvp-success" class="success-message">
+          <span class="success-icon">✝</span>
+          <strong>Thank you! Your RSVP has been received.</strong><br>
+          We're so excited to celebrate with you on 25 May 2026.<br>
+          God bless you! 🙏
+        </div>
+
+      </div><!-- /rsvp-form-card -->
+
+      <!-- INFO SIDEBAR -->
+      <div class="rsvp-info-card reveal-right">
+        <div class="rsvp-info-title">Event Details</div>
+
+        <div class="rsvp-info-item">
+          <span class="rsvp-info-icon">✝</span>
+          <div>
+            <div class="rsvp-info-label">Ceremony</div>
+            <div class="rsvp-info-value">25 May 2026 · 10:30 AM<br>Nehru Nagar, Thanda, AP</div>
+          </div>
+        </div>
+
+        <div class="rsvp-info-item">
+          <span class="rsvp-info-icon">🥂</span>
+          <div>
+            <div class="rsvp-info-label">Reception</div>
+            <div class="rsvp-info-value">25 May 2026 · 7:00 PM<br>Same Venue</div>
+          </div>
+        </div>
+
+        <div class="rsvp-info-item">
+          <span class="rsvp-info-icon">👔</span>
+          <div>
+            <div class="rsvp-info-label">Dress Code</div>
+            <div class="rsvp-info-value">Smart Formal / Traditional</div>
+          </div>
+        </div>
+
+        <div class="rsvp-info-item">
+          <span class="rsvp-info-icon">📍</span>
+          <div>
+            <div class="rsvp-info-label">Venue</div>
+            <div class="rsvp-info-value">8FQ9+PWF, Nehru Nagar,<br>Thanda, AP 522612</div>
+          </div>
+        </div>
+
+        <div class="rsvp-deadline">
+          <div class="rsvp-deadline-label">RSVP Deadline</div>
+          <div class="rsvp-deadline-date">15 May 2026</div>
+        </div>
+
+        <!-- Verse -->
+        <div style="margin-top:32px;padding:24px;background:rgba(201,168,76,0.08);border-radius:12px;border:1px solid rgba(201,168,76,0.2);">
+          <div style="font-family:var(--font-serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:8px;">
+            "Where you go I will go, and where you stay I will stay."
+          </div>
+          <div style="font-family:var(--font-sans);font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);">
+            — Ruth 1:16
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div style="margin-top:24px;text-align:center;">
+          <div style="font-family:var(--font-sans);font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">
+            Questions? Contact Us
+          </div>
+          <div style="font-family:var(--font-serif);font-size:0.95rem;color:var(--gold-pale);">
+            chenna.gayathri2026@gmail.com
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /rsvp-layout -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-cross">✝</span>
+  <div class="footer-names">Chenna &amp; Gayathri</div>
+  <div class="footer-date">25 May 2026</div>
+  <p class="footer-verse">"What God has joined together, let no one separate." — Mark 10:9</p>
+  <ul class="footer-nav">
+    <li><a href="invitation.html">Invitation</a></li>
+    <li><a href="couple.html">Couple</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="family.html">Family</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="location.html">Location</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+  <div class="footer-copy">Made with ♥ &amp; God's Grace · Chenna Naik &amp; Gayathri Bai © 2026</div>
+</footer>
+
+<button id="music-btn" title="Play Music">🎵</button>
+<script src="js/script.js"></script>
+<script>
+  /* Character counter for message textarea */
+  const msgField   = document.getElementById('message');
+  const charCount  = document.getElementById('char-count');
+  if (msgField && charCount) {
+    msgField.addEventListener('input', () => {
+      charCount.textContent = msgField.value.length;
+    });
+  }
+</script>
+</body>
+</html>

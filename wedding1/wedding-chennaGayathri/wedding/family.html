@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family — Chenna Naik & Gayathri Bai Wedding</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>" />
+  <style>
+    .family-section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 0;
+    }
+    .family-group-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem; letter-spacing: 2px; color: var(--text-dark);
+      text-align: center; margin-bottom: 32px;
+      position: relative;
+    }
+    .family-group-title::after {
+      content: '';
+      display: block; width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      margin: 12px auto 0;
+    }
+    .blessing-verse-box {
+      background: linear-gradient(135deg, var(--navy), #2A3A6A);
+      border-radius: var(--radius-lg); padding: 48px;
+      text-align: center; max-width: 720px; margin: 0 auto;
+      box-shadow: var(--shadow-lg);
+    }
+    .blessing-verse-box .verse-icon { font-size: 2rem; color: var(--gold); margin-bottom: 16px; display: block; }
+    .blessing-verse-box .verse-text {
+      font-family: var(--font-serif);
+      font-size: 1.2rem; font-style: italic; line-height: 1.8;
+      color: rgba(255,255,255,0.85); margin-bottom: 12px;
+    }
+    .blessing-verse-box .verse-ref {
+      font-family: var(--font-sans);
+      font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .family-side-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), #2A3A6A);
+      padding: 8px 20px; border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .family-members-list {
+      list-style: none; margin-top: 24px;
+    }
+    .family-members-list li {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-family: var(--font-serif); font-size: 1.05rem;
+      color: var(--text-mid);
+    }
+    .family-members-list li:last-child { border-bottom: none; }
+    .family-members-list .fm-icon { color: var(--gold); font-size: 1.1rem; }
+    .family-members-list .fm-name { font-weight: 500; color: var(--text-dark); }
+    .family-members-list .fm-role { font-style: italic; font-size: 0.9rem; color: var(--text-light); margin-left: auto; }
+
+    .heart-connector {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-cross">✝</div><div class="loader-text">Loading…</div></div>
+<canvas id="particles-canvas"></canvas>
+<audio id="bg-music" loop preload="none"></audio>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="invitation.html" class="nav-brand">
+    <span class="nav-brand-cross">✝</span>
+    <div class="nav-brand-text"><span>Chenna</span> & <span>Gayathri</span></div>
+  </a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="invitation.html" class="nav-link">Invitation</a></li>
+    <li class="nav-item"><a href="couple.html" class="nav-link">Couple</a></li>
+    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+    <li class="nav-item"><a href="family.html" class="nav-link">Family</a></li>
+    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+    <li class="nav-item"><a href="location.html" class="nav-link">Location</a></li>
+    <li class="nav-item"><a href="rsvp.html" class="nav-link">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="page-hero-cross">✝</span>
+  <h1 class="page-hero-title">Our Families</h1>
+  <p class="page-hero-sub">With the Blessings of Our Families</p>
+</section>
+
+<!-- BLESSING VERSE -->
+<section class="section" style="padding-bottom:60px;">
+  <div class="container">
+    <div class="blessing-verse-box reveal">
+      <span class="verse-icon">✝</span>
+      <p class="verse-text">
+        "Honor your father and your mother, so that you may live long in the land<br>
+        the Lord your God is giving you."
+      </p>
+      <div class="verse-ref">— Exodus 20:12</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY CARDS SECTION -->
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-ornament">
+        <span class="section-ornament-line"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line right"></span>
+      </div>
+      <h2 class="section-title">With the Blessings of Our Families</h2>
+      <p class="section-subtitle">Two families united in love, faith, and joy</p>
+    </div>
+
+    <div class="family-section-grid">
+
+      <!-- Groom's Family Card -->
+      <div class="card reveal-left" style="text-align:center;">
+        <span class="family-side-label">⚜ Groom's Family</span>
+        <div class="family-card-avatar" style="width:100px;height:100px;font-size:2.5rem;margin:0 auto 20px;">👨‍👩‍👦</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;letter-spacing:2px;color:var(--text-dark);margin-bottom:6px;">Groom's Parents</div>
+        <div style="font-family:var(--font-serif);font-style:italic;color:var(--gold-dark);font-size:1rem;margin-bottom:20px;">A Family of Faith &amp; Love</div>
+        <div class="family-card-divider"></div>
+
+        <ul class="family-members-list">
+          <li>
+            <span class="fm-icon">✦</span>
+            <span class="fm-name">Lalu Naik</span>
+            <span class="fm-role">Father of Groom</span>
+          </li>
+          <li>
+            <span class="fm-icon">✦</span>
+            <span class="fm-name">Boddi Bai</span>
+            <span class="fm-role">Mother of Groom</span>
+          </li>
+          <li>
+            <span class="fm-icon">✦</span>
+            <span class="fm-name">Chenna Naik</span>
+            <span class="fm-role">The Groom</span>
+          </li>
+        </ul>
+
+        <div class="family-card-divider"></div>
+        <p style="font-family:var(--font-serif);font-style:italic;color:var(--text-light);font-size:0.95rem;margin-top:8px;">
+          "Children are a heritage from the Lord." — Psalm 127:3
+        </p>
+      </div>
+
+      <!-- Center connector (mobile hidden via grid) -->
+      <div class="heart-connector reveal" style="align-self:center;">
+        <div style="text-align:center;">
+          <div style="font-size:3rem;color:var(--gold);filter:drop-shadow(0 0 20px rgba(201,168,76,0.5));">♥</div>
+          <div style="font-family:var(--font-serif);font-style:italic;color:var(--text-light);font-size:0.9rem;margin-top:8px;">United by<br>God's Grace</div>
+        </div>
+      </div>
+
+      <!-- Bride's Family Card -->
+      <div class="card reveal-right" style="text-align:center;">
+        <span class="family-side-label">⚜ Bride's Family</span>
+        <div class="family-card-avatar" style="width:100px;height:100px;font-size:2.5rem;margin:0 auto 20px;">👨‍👩‍👧</div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;letter-spacing:2px;color:var(--text-dark);margin-bottom:6px;">Bride's Parents</div>
+        <div style="font-family:var(--font-serif);font-style:italic;color:var(--gold-dark);font-size:1rem;margin-bottom:20px;">A Family of Grace &amp; Devotion</div>
+        <div class="family-card-divider"></div>
+
+        <ul class="family-members-list">
+          <li>
+            <span class="fm-icon">✦</span>
+            <span class="fm-name">Sanker Naik</span>
+            <span class="fm-role">Father of Bride</span>
+          </li>
+          <li>
+            <span class="fm-icon">✦</span>
+            <span class="fm-name">Lakshmi Bai</span>
+            <span class="fm-role">Mother of Bride</span>
+          </li>
+          <li>
+            <span class="fm-icon">✦</span>
+            <span class="fm-name">Gayathri Bai</span>
+            <span class="fm-role">The Bride</span>
+          </li>
+        </ul>
+
+        <div class="family-card-divider"></div>
+        <p style="font-family:var(--font-serif);font-style:italic;color:var(--text-light);font-size:0.95rem;margin-top:8px;">
+          "She is clothed with strength and dignity." — Proverbs 31:25
+        </p>
+      </div>
+
+    </div><!-- /family-section-grid -->
+  </div>
+</section>
+
+<!-- FAMILY BLESSING SECTION -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-ornament">
+        <span class="section-ornament-line"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line right"></span>
+      </div>
+      <h2 class="section-title">A Family United</h2>
+      <p class="section-subtitle">Today two families become one through God's blessing</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;" class="stagger-children">
+
+      <div class="family-card reveal">
+        <div class="family-card-badge">✦ Groom's Father</div>
+        <div class="family-card-avatar">👨</div>
+        <div class="family-card-name">Lalu Naik</div>
+        <div class="family-card-role">Father of the Groom</div>
+        <div class="family-card-divider"></div>
+        <p style="font-family:var(--font-serif);font-size:0.95rem;font-style:italic;color:var(--text-light);">
+          A man of faith who raised his son with grace and dignity
+        </p>
+      </div>
+
+      <div class="family-card reveal">
+        <div class="family-card-badge">✦ Groom's Mother</div>
+        <div class="family-card-avatar">👩</div>
+        <div class="family-card-name">Boddi Bai</div>
+        <div class="family-card-role">Mother of the Groom</div>
+        <div class="family-card-divider"></div>
+        <p style="font-family:var(--font-serif);font-size:0.95rem;font-style:italic;color:var(--text-light);">
+          Her love and prayers have shaped the man her son has become
+        </p>
+      </div>
+
+      <div class="family-card reveal">
+        <div class="family-card-badge">✦ Bride's Father</div>
+        <div class="family-card-avatar">👨</div>
+        <div class="family-card-name">Sanker Naik</div>
+        <div class="family-card-role">Father of the Bride</div>
+        <div class="family-card-divider"></div>
+        <p style="font-family:var(--font-serif);font-size:0.95rem;font-style:italic;color:var(--text-light);">
+          With pride and joy, he gives his precious daughter in holy matrimony
+        </p>
+      </div>
+
+      <div class="family-card reveal">
+        <div class="family-card-badge">✦ Bride's Mother</div>
+        <div class="family-card-avatar">👩</div>
+        <div class="family-card-name">Lakshmi Bai</div>
+        <div class="family-card-role">Mother of the Bride</div>
+        <div class="family-card-divider"></div>
+        <p style="font-family:var(--font-serif);font-size:0.95rem;font-style:italic;color:var(--text-light);">
+          Whose love and sacrifices have made this beautiful day possible
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-cross">✝</span>
+  <div class="footer-names">Chenna &amp; Gayathri</div>
+  <div class="footer-date">25 May 2026</div>
+  <p class="footer-verse">"What God has joined together, let no one separate." — Mark 10:9</p>
+  <ul class="footer-nav">
+    <li><a href="invitation.html">Invitation</a></li>
+    <li><a href="couple.html">Couple</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="family.html">Family</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="location.html">Location</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+  <div class="footer-copy">Made with ♥ &amp; God's Grace · Chenna Naik &amp; Gayathri Bai © 2026</div>
+</footer>
+
+<button id="music-btn" title="Play Music">🎵</button>
+<script src="js/script.js"></script>
+</body>
+</html>

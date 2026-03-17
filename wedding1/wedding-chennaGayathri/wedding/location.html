@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Location — Chenna Naik & Gayathri Bai Wedding</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>" />
+  <style>
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media(max-width:800px){ .location-grid{grid-template-columns:1fr;} }
+
+    .address-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    .address-card-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem; letter-spacing: 2px; color: var(--gold-dark);
+      text-transform: uppercase; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .address-text {
+      font-family: var(--font-serif);
+      font-size: 1.1rem; color: var(--text-mid);
+      line-height: 1.8; margin-bottom: 24px;
+    }
+    .address-highlight {
+      font-weight: 600; color: var(--text-dark);
+    }
+    .directions-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--navy), #2A3A6A);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 50px; text-decoration: none;
+      transition: var(--transition);
+      margin-top: 8px;
+    }
+    .directions-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    .qr-wrapper {
+      text-align: center;
+      padding: 40px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    .qr-title {
+      font-family: var(--font-display);
+      font-size: 1rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold-dark);
+      margin-bottom: 24px;
+    }
+    .qr-scan-text {
+      font-family: var(--font-display);
+      font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--text-mid); margin-top: 20px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .qr-scan-text::before, .qr-scan-text::after {
+      content: '—'; color: var(--gold);
+    }
+    .nearby-section { margin-top: 48px; }
+    .nearby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; margin-top: 28px;
+    }
+    .nearby-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(201,168,76,0.12);
+      text-align: center;
+      transition: var(--transition);
+    }
+    .nearby-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .nearby-icon { font-size: 2rem; margin-bottom: 12px; }
+    .nearby-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem; letter-spacing: 1.5px;
+      color: var(--text-dark); margin-bottom: 6px;
+    }
+    .nearby-text {
+      font-family: var(--font-serif);
+      font-size: 0.9rem; font-style: italic;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-cross">✝</div><div class="loader-text">Loading…</div></div>
+<canvas id="particles-canvas"></canvas>
+<audio id="bg-music" loop preload="none"></audio>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="invitation.html" class="nav-brand">
+    <span class="nav-brand-cross">✝</span>
+    <div class="nav-brand-text"><span>Chenna</span> & <span>Gayathri</span></div>
+  </a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="invitation.html" class="nav-link">Invitation</a></li>
+    <li class="nav-item"><a href="couple.html" class="nav-link">Couple</a></li>
+    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+    <li class="nav-item"><a href="family.html" class="nav-link">Family</a></li>
+    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+    <li class="nav-item"><a href="location.html" class="nav-link">Location</a></li>
+    <li class="nav-item"><a href="rsvp.html" class="nav-link">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="page-hero-cross">✝</span>
+  <h1 class="page-hero-title">Venue & Location</h1>
+  <p class="page-hero-sub">Find your way to our celebration</p>
+</section>
+
+<!-- MAP SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-ornament">
+        <span class="section-ornament-line"></span>
+        <span class="section-ornament-icon">✦</span>
+        <span class="section-ornament-line right"></span>
+      </div>
+      <h2 class="section-title">Wedding Venue</h2>
+      <p class="section-subtitle">Nehru Nagar, Thanda, Andhra Pradesh</p>
+    </div>
+
+    <!-- Google Maps Embed -->
+    <div class="map-container reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=8FQ9%2BPWF,+Nehru+Nagar,+Thanda,+Andhra+Pradesh+522612&output=embed&z=16"
+        title="Wedding Venue Map"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Address & QR Grid -->
+    <div class="location-grid" style="margin-top:40px;">
+
+      <!-- Address Info -->
+      <div class="address-card reveal-left">
+        <div class="address-card-title">
+          <span>📍</span> Wedding Venue
+        </div>
+
+        <div style="font-family:var(--font-serif);font-style:italic;color:var(--text-light);margin-bottom:20px;">
+          We look forward to welcoming you at our special venue
+        </div>
+
+        <p class="address-text">
+          <span class="address-highlight">Plus Code:</span> 8FQ9+PWF<br>
+          <span class="address-highlight">Area:</span> Nehru Nagar, Thanda<br>
+          <span class="address-highlight">District:</span> Guntur<br>
+          <span class="address-highlight">State:</span> Andhra Pradesh<br>
+          <span class="address-highlight">PIN:</span> 522612
+        </p>
+
+        <div class="gold-divider">
+          <span class="gold-divider-line"></span>
+          <span class="gold-divider-icon">✦</span>
+          <span class="gold-divider-line"></span>
+        </div>
+
+        <!-- Event times reminder -->
+        <div style="margin-bottom:24px;">
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--cream-dark);font-family:var(--font-serif);">
+            <span style="color:var(--text-light);">⛪ Ceremony</span>
+            <span style="color:var(--text-dark);font-weight:600;">10:30 AM</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;font-family:var(--font-serif);">
+            <span style="color:var(--text-light);">🥂 Reception</span>
+            <span style="color:var(--text-dark);font-weight:600;">7:00 PM</span>
+          </div>
+        </div>
+
+        <a href="https://maps.google.com/maps?q=8FQ9+PWF,+Nehru+Nagar,+Thanda,+Andhra+Pradesh+522612"
+           target="_blank" rel="noopener" class="directions-btn">
+          📍 Open in Google Maps
+        </a>
+      </div>
+
+      <!-- QR Code -->
+      <div class="qr-wrapper reveal-right">
+        <div class="qr-title">📱 Scan for Directions</div>
+
+        <p style="font-family:var(--font-serif);font-style:italic;color:var(--text-light);font-size:0.95rem;margin-bottom:28px;">
+          Scan this QR code with your phone camera to instantly open Google Maps navigation to our venue.
+        </p>
+
+        <!-- QR code rendered by JS -->
+        <div id="qr-code" style="display:inline-block;padding:20px;background:var(--white);border-radius:16px;box-shadow:var(--shadow-md);border:2px solid rgba(201,168,76,0.2);"></div>
+
+        <div class="qr-scan-text" style="margin-top:20px;">Scan for Directions</div>
+
+        <p style="font-family:var(--font-sans);font-size:0.75rem;letter-spacing:1px;color:var(--text-light);margin-top:16px;">
+          Works with Google Maps, Apple Maps, and all major navigation apps
+        </p>
+
+        <div style="margin-top:24px;">
+          <a href="https://maps.google.com/maps?q=8FQ9+PWF,+Nehru+Nagar,+Thanda,+Andhra+Pradesh+522612"
+             target="_blank" rel="noopener"
+             style="font-family:var(--font-sans);font-size:0.75rem;color:var(--gold-dark);text-decoration:underline;letter-spacing:1px;">
+            Can't scan? Click here to open maps →
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /location-grid -->
+
+    <!-- Nearby Info -->
+    <div class="nearby-section">
+      <div class="section-header">
+        <div class="section-ornament">
+          <span class="section-ornament-line"></span>
+          <span class="section-ornament-icon">✦</span>
+          <span class="section-ornament-line right"></span>
+        </div>
+        <h2 class="section-title">Good to Know</h2>
+        <p class="section-subtitle">Helpful information for our out-of-town guests</p>
+      </div>
+
+      <div class="nearby-grid stagger-children">
+        <div class="nearby-card reveal">
+          <div class="nearby-icon">🚗</div>
+          <div class="nearby-title">By Road</div>
+          <div class="nearby-text">Accessible via NH-16. Ample parking available at the venue.</div>
+        </div>
+        <div class="nearby-card reveal">
+          <div class="nearby-icon">🚂</div>
+          <div class="nearby-title">Nearest Railway</div>
+          <div class="nearby-text">Guntur Railway Station – approx. 30 km from venue</div>
+        </div>
+        <div class="nearby-card reveal">
+          <div class="nearby-icon">✈️</div>
+          <div class="nearby-title">Nearest Airport</div>
+          <div class="nearby-text">Vijayawada International Airport – approx. 35 km away</div>
+        </div>
+        <div class="nearby-card reveal">
+          <div class="nearby-icon">🏨</div>
+          <div class="nearby-title">Accommodation</div>
+          <div class="nearby-text">Several hotels available in Guntur for out-of-town guests</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-cross">✝</span>
+  <div class="footer-names">Chenna &amp; Gayathri</div>
+  <div class="footer-date">25 May 2026</div>
+  <p class="footer-verse">"What God has joined together, let no one separate." — Mark 10:9</p>
+  <ul class="footer-nav">
+    <li><a href="invitation.html">Invitation</a></li>
+    <li><a href="couple.html">Couple</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="family.html">Family</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="location.html">Location</a></li>
+    <li><a href="rsvp.html">RSVP</a></li>
+  </ul>
+  <div class="footer-copy">Made with ♥ &amp; God's Grace · Chenna Naik &amp; Gayathri Bai © 2026</div>
+</footer>
+
+<button id="music-btn" title="Play Music">🎵</button>
+<script src="js/script.js"></script>
+</body>
+</html>
